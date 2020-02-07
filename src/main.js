@@ -3,6 +3,7 @@ import App from './App.vue'
 import './assets/css/reset.css'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
+import './assets/fonts/iconfont.css'
 import router from './router'
 import store from './store'
 import { errorHandler, warnHandler } from '@/utils/error'
