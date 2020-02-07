@@ -12,7 +12,7 @@ export default new Vuex.Store({
         storage: sessionStorage,
     })],
     state: {
-    
+        tags: [],
     },
     mutations,
     actions,

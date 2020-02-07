@@ -14,7 +14,7 @@
                         </el-menu-item>
                     </el-menu-item-group>
                 </el-submenu>
-                <el-menu-item v-else :index="item.path">
+                <el-menu-item v-else @click="handleSetNav(item)" :index="item.path">
                     <span slot="title">{{ item.meta.title }}</span>
                 </el-menu-item>
         </el-menu>
@@ -42,8 +42,8 @@ export default {
     
     },
     methods: {
-        handleOpen(key, keyPath) {
-            console.log(key, keyPath);
+        handleSetNav(item) {
+            this.$store.commit('SET_TAGS', { name: item.meta.title, path: item.path })
         },
         handleClose(key, keyPath) {
             console.log(key, keyPath);

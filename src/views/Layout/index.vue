@@ -15,6 +15,7 @@
         <div class="mon-wrap-container">
             <Aside/>
             <div class="mon-wrap-content">
+                <Tags></Tags>
                 <router-view></router-view>
             </div>
         </div>
@@ -23,10 +24,12 @@
 
 <script>
 import Aside from './components/aside'
+import Tags from './components/tags'
 
 export default {
     components: {
         Aside,
+        Tags,
     },
     data() {
         return {}
