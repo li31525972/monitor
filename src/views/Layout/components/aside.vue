@@ -11,7 +11,7 @@
     >
       <el-submenu :index="i+''" v-for="(item,i) in routes" :key="i" v-if="item.children.length > 1">
         <template slot="title">
-          <i :class="'el-icon-' + item.meta.icon"></i>
+          <!--<i :class="'el-icon-' + item.meta.icon"></i>-->
           <span slot="title">{{ item.meta.title }}</span>
         </template>
         <el-menu-item-group>
