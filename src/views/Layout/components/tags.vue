@@ -7,7 +7,7 @@
       :class="{'active': path === item.path }"
     >
       {{ item.name }}
-      <i @click.stop="handleRemoveTags(item)" v-if="path === item.path">X</i>
+      <i @click.stop="handleRemoveTags(item)" v-if="path === item.path && item.path !== '/home'">X</i>
     </li>
   </ul>
 </template>
