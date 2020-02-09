@@ -67,7 +67,7 @@ export default {
             name: '序号',
             key: 'index',
             width: '50%',
-            align:'center'
+            align:'left'
           },
           {
             name: '系统名称',
@@ -210,7 +210,7 @@ export default {
 </script>
 
 <style>
-.el-table_10_column_64.is-center.el-table-column--selection {
+.el-table_8_column_50.is-center.el-table-column--selection {
   border-right: none;
 }
 </style>

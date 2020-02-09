@@ -14,7 +14,7 @@
         :key="i"
         :prop="item.key"
         :label="item.name"
-        :align="item.align"
+        align="center"
         :show-overflow-tooltip="true"
       ></el-table-column>
       <slot name="apply"></slot>

@@ -66,32 +66,27 @@ export default {
           {
             name: '序号',
             key: 'index',
-            width: '50%',
-            align:'center'
+            width: '50%'
           },
           {
             name: '系统名称',
             key: 'name',
-            width: '138%',
-            align:'center'
+            width: '140%'
           },
           {
             name: '机构数量',
             key: 'institutionsNum',
-            width: '77%',
-            align:'center'
+            width: '77%'
           },
           {
             name: '用户数量',
             key: 'uerNum',
-            width: '77%',
-            align:'center'
+            width: '77%'
           },
           {
             name: "活跃度",
             key: 'activity',
-            width: '77%',
-            align:'center'
+            width: '77%'
           },
         ],
         // width: '93%',
@@ -105,63 +100,14 @@ export default {
             activity: 100
           },
           {
-            index: 2,
+            index: 1,
             name: '测试',
             institutionsNum: 12,
             uerNum: 21,
             activity: 100
           },
           {
-            index: 3,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 4,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 5,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 6,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 7,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 8,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 9,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 10,
+            index: 1,
             name: '测试',
             institutionsNum: 12,
             uerNum: 21,
@@ -210,7 +156,7 @@ export default {
 </script>
 
 <style>
-.el-table_10_column_64.is-center.el-table-column--selection {
+.el-table_1_column_1.is-center.el-table-column--selection {
   border-right: none;
 }
 </style>

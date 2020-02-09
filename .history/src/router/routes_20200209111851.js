@@ -45,13 +45,13 @@ export default [
                 path: 'system',
                 name: 'system',
                 meta: { title: '系统管理' },
-                component: () => import(/* webpackChunkName: 'system' */ '@/views/Basics/system')
+                component: () => import(/* webpackChunkName: 'system' */ '@/views/Basics/System')
             },
             {
                 path: 'mechanism',
                 name: 'mechanism',
                 meta: { title: '机构管理' },
-                component: () => import(/* webpackChunkName: 'mechanism' */ '@/views/Basics/mechanism')
+                component: () => import(/* webpackChunkName: 'mechanism' */ '@/views/Basics/Mechanism')
             }
         ]
     },

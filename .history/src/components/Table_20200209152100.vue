@@ -3,27 +3,25 @@
     <el-table
       :data="table.tableData"
       border
-      :header-cell-style="{background:'rgba(242,246,255,1)',color:'#333333'}"
+      :header-cell-style="{background:'#F6F6F6',color:'#333333'}"
       :row-style="{height:'40px'}"
       :cell-style="{padding:'0'}"
     >
-    <slot name='selection'></slot>
       <el-table-column
+        :width="width"
         v-for="(item,i) in table.list"
-        :width="item.width"
         :key="i"
         :prop="item.key"
         :label="item.name"
-        :align="item.align"
+        align="center"
         :show-overflow-tooltip="true"
       ></el-table-column>
-      <slot name="apply"></slot>
     </el-table>
     <el-pagination
       v-if="decide"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      :current-page="currentPage"
+      :current-page="currentPage4"
       :page-sizes="[100, 200, 300, 400]"
       :page-size="100"
       layout="total, sizes, prev, pager, next, jumper"
@@ -41,9 +39,8 @@ export default {
     total: {
       type: Number
     },
-    currentPage: {
-      type: Number,
-      default:1,
+    currentPage4: {
+      type: Number
     },
     name: {
       type: String

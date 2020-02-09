@@ -66,32 +66,27 @@ export default {
           {
             name: '序号',
             key: 'index',
-            width: '50%',
-            align:'center'
+            width: '50%'
           },
           {
             name: '系统名称',
             key: 'name',
-            width: '138%',
-            align:'center'
+            width: '138%'
           },
           {
             name: '机构数量',
             key: 'institutionsNum',
-            width: '77%',
-            align:'center'
+            width: '77%'
           },
           {
             name: '用户数量',
             key: 'uerNum',
-            width: '77%',
-            align:'center'
+            width: '77%'
           },
           {
             name: "活跃度",
             key: 'activity',
-            width: '77%',
-            align:'center'
+            width: '77%'
           },
         ],
         // width: '93%',
@@ -210,7 +205,7 @@ export default {
 </script>
 
 <style>
-.el-table_10_column_64.is-center.el-table-column--selection {
+.el-table_1_column_1.is-center.el-table-column--selection {
   border-right: none;
 }
 </style>

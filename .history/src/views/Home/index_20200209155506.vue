@@ -210,7 +210,7 @@ export default {
 </script>
 
 <style>
-.el-table_10_column_64.is-center.el-table-column--selection {
+.el-table_9_column_57.is-center.el-table-column--selection {
   border-right: none;
 }
 </style>

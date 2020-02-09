@@ -7,8 +7,7 @@ import './assets/fonts/iconfont.css'
 import router from './router'
 import store from './store'
 import { errorHandler, warnHandler } from '@/utils/error'
-import echarts from 'echarts'
-Vue.prototype.$echarts = echarts
+
 require('../mock')
 
 Vue.use(Element)

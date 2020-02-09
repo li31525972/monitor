@@ -7,14 +7,13 @@
       :row-style="{height:'40px'}"
       :cell-style="{padding:'0'}"
     >
-    <slot name='selection'></slot>
       <el-table-column
+        :width="width"
         v-for="(item,i) in table.list"
-        :width="item.width"
         :key="i"
         :prop="item.key"
         :label="item.name"
-        :align="item.align"
+        align="center"
         :show-overflow-tooltip="true"
       ></el-table-column>
       <slot name="apply"></slot>

@@ -42,16 +42,10 @@ export default [
         component: Home,
         children: [
             {
-                path: 'system',
-                name: 'system',
-                meta: { title: '系统管理' },
-                component: () => import(/* webpackChunkName: 'system' */ '@/views/Basics/system')
-            },
-            {
-                path: 'mechanism',
-                name: 'mechanism',
-                meta: { title: '机构管理' },
-                component: () => import(/* webpackChunkName: 'mechanism' */ '@/views/Basics/mechanism')
+                path: 'config',
+                name: 'config',
+                meta: { title: '配置' },
+                component: () => import(/* webpackChunkName: 'config' */ '@/views/Basics/Config')
             }
         ]
     },

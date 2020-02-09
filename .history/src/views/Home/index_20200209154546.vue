@@ -34,7 +34,21 @@
       style="width:49%;margin-top:8px;margin-left:10px;background: #fff;
     border: 1px solid transparent;display:inline-block;"
     >
-      <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+      <div style="padding:20px;padding-left:0px;">
+        <Table :table="table" :width="table.width">
+          <div slot="apply">
+            <el-table-column fixed="right" align="center" label="使用情况" width="100">
+              <template slot-scope="scope">
+                <el-button
+                  @click="handleCancel(scope.row,scope.$index,keep.tableData)"
+                  type="text"
+                  size="small"
+                >查看</el-button>
+              </template>
+            </el-table-column>
+          </div>
+        </Table>
+      </div>
     </div>
   </div>
 </template>
@@ -66,32 +80,27 @@ export default {
           {
             name: '序号',
             key: 'index',
-            width: '50%',
-            align:'center'
+            width: '50%'
           },
           {
             name: '系统名称',
             key: 'name',
-            width: '138%',
-            align:'center'
+            width: '150%'
           },
           {
             name: '机构数量',
             key: 'institutionsNum',
-            width: '77%',
-            align:'center'
+            width: '80%'
           },
           {
             name: '用户数量',
             key: 'uerNum',
-            width: '77%',
-            align:'center'
+            width: '80%'
           },
           {
             name: "活跃度",
             key: 'activity',
-            width: '77%',
-            align:'center'
+            width: '80%'
           },
         ],
         // width: '93%',
@@ -105,63 +114,14 @@ export default {
             activity: 100
           },
           {
-            index: 2,
+            index: 1,
             name: '测试',
             institutionsNum: 12,
             uerNum: 21,
             activity: 100
           },
           {
-            index: 3,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 4,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 5,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 6,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 7,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 8,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 9,
-            name: '测试',
-            institutionsNum: 12,
-            uerNum: 21,
-            activity: 100
-          },
-          {
-            index: 10,
+            index: 1,
             name: '测试',
             institutionsNum: 12,
             uerNum: 21,
@@ -181,27 +141,9 @@ export default {
 
   },
   mounted () {
-    this.drawLine();
+
   },
   methods: {
-    drawLine () {
-      // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.getElementById('myChart'))
-      // 绘制图表
-      myChart.setOption({
-        title: { text: '' },
-        tooltip: {},
-        xAxis: {
-          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-          name: '销量',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-        }]
-      });
-    },
     handleCancel () {
       console.log(1)
     }
@@ -210,8 +152,8 @@ export default {
 </script>
 
 <style>
-.el-table_10_column_64.is-center.el-table-column--selection {
-  border-right: none;
+.el-table_9_column_50.el-table-column--selection{
+    border-right: none;
 }
 </style>
 
