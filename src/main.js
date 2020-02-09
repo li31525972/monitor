@@ -10,7 +10,7 @@ import { errorHandler, warnHandler } from '@/utils/error'
 
 require('../mock')
 
-Vue.use(Element,{ size: 'small' })
+Vue.use(Element)
 Vue.config.productionTip = false
 
 // 全局捕获错误

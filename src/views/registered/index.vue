@@ -7,8 +7,8 @@
     <div class="content">
       <div class="logo"></div>
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="form">
-        <h2 class="user">用户登录</h2>
-        <div class="user_login">user login</div>
+        <h2 class="user">注册链盾</h2>
+        <div class="user_login">Registered</div>
         <el-form-item prop="pass" class="account">
           <el-input type="text" v-model="ruleForm.pass" placeholder="请输入账号" autocomplete="off"></el-input>
         </el-form-item>
@@ -31,20 +31,12 @@
           <img src="../../assets/images/code.png" class="codeImg">
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')" class="submit">登录</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm')" class="submit">免费注册</el-button>
         </el-form-item>
         <div>
-          <div class="registered" @click="hadleRegistered">注册链盾>></div>
-          <div class="guide">
-            链盾操作指南
-            <el-tooltip class="item" effect="light" placement="top">
-              <div slot="content">
-                注册“链盾”所用的用户名和密码，与本系
-                <br>统用户名和密码一致，如果您还没有注册
-                <br>链盾，请您点击按钮，先完成注册！
-              </div>
-              <el-button class="el-icon-question question"></el-button>
-            </el-tooltip>
+          <div class="prompt">注册提示：注册“链盾”所用的用户名和密码，与业务系统用户名和密码一致。</div>
+          <div class="clause">
+            <el-checkbox v-model="checked">我同意安装“链盾服务”等相关条款和声明，并按条约规范使用。</el-checkbox>
           </div>
         </div>
       </el-form>
@@ -52,19 +44,13 @@
     <div class="footer">
       <p>Copyright 清华大学社会科学院</p>
     </div>
-    <Statement v-if="dialogVisible" ref="Statement"/>
   </div>
 </template>
 
 <script>
-import Statement from "./components/statement";
 export default {
-  components: {
-    Statement
-  },
   data () {
     return {
-      dialogVisible: true,
       ruleForm: {
         pass: 'admin',
         checkPass: '123456',
@@ -82,7 +68,8 @@ export default {
         code: [
           { required: true, message: '验证码不能为空', trigger: 'blur' },
         ]
-      }
+      },
+      checked:true
     }
   },
   computed: {
@@ -101,23 +88,35 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$router.push({ name: "overview" })
+          this.$router.push({ name: "login" })
         } else {
           console.log('error submit!!');
           return false;
         }
       });
     },
-    hadleRegistered () {
-      this.$router.push({ name: "registered" })
-    }
   }
 }
 </script>
 
 <style>
-.el-tooltip__popper.is-light {
-  border: 1px solid transparent;
+.el-checkbox__label {
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: rgba(79, 112, 200, 1);
+  line-height: 10px;
+}
+.el-checkbox__input.is-checked + .el-checkbox__label {
+  color: rgba(79, 112, 200, 1);
+}
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: rgba(79, 112, 200, 1);
+  border-color: rgba(79, 112, 200, 1);
+}
+.el-checkbox__inner:hover{
+  border-color: rgba(79, 112, 200, 1);
 }
 </style>
 
@@ -152,7 +151,7 @@ export default {
     .form {
       width: 315px;
       height: 287px;
-      padding: 66px 82px 82px 82px;
+      padding: 66px 82px 92px 82px;
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
       border-radius: 8px;
@@ -217,21 +216,22 @@ export default {
         border-radius: 3px;
         border: 1px solid rgba(79, 112, 200, 1);
       }
-      .registered,
-      .guide {
-        color: rgba(79, 112, 200, 1);
-        cursor: pointer;
+      .prompt {
+        font-size: 14px;
+        font-family: Microsoft YaHei;
+        font-weight: 400;
+        color: rgba(153, 153, 153, 1);
+        padding-bottom: 10px;
       }
-      .registered {
-        float: left;
-      }
-      .guide {
-        float: right;
-        .question {
-          border: none;
-          padding: 0;
-          font-size: 16px;
-          color: rgba(79, 112, 200, 1);
+      .clause {
+        .el-checkbox {
+          .el-checkbox__label {
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(79, 112, 200, 1);
+            line-height: 10px;
+          }
         }
       }
     }
@@ -243,5 +243,8 @@ export default {
     font-size: 0.75rem;
     text-align: center;
   }
+}
+.el-tooltip__popper.is-light {
+  border: 1px solid transparent !important;
 }
 </style>

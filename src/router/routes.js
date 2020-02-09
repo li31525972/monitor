@@ -6,6 +6,11 @@ export default [
         redirect: '/login'
     },
     {
+        path:'/registered',
+        name:'registered',
+        component: ()=>import('@/views/registered')
+    },
+    {
         path: '/home',
         component: Home,
         meta: { title: '概览', },
