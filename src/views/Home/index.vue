@@ -12,21 +12,24 @@
           <el-input type="text" placeholder="请输入系统名称" style="display:inline-block;width:25%"></el-input>
           <el-button type="primary" style="margin-left:20px;">查询</el-button>
         </div>
-        <Table :table="table" :width="table.width">
-          <div slot="selection">
-            <el-table-column type="selection" align="center" width="40"></el-table-column>
-          </div>
-          <div slot="apply">
-            <el-table-column fixed="right" align="center" label="使用情况" width="100">
-              <template slot-scope="scope">
-                <el-button
-                  @click="handleCancel(scope.row,scope.$index,keep.tableData)"
+        <Table :table="table"
+        :width="table.width" 
+        @handleBtnClick="handleAction"
+        :btnList="table.btnList">
+          <!-- <div slot="selection">
+            <el-table-column type="selection" align="center" ></el-table-column>
+          </div> -->
+          <!-- <div slot="apply" slot-scope="{ row, index }"> -->
+            <!-- <el-table-column fixed="right" align="center" label="使用情况" width="100"> -->
+              <!-- <template slot-scope="scope"> -->
+                <!-- <el-button
+                  @click="handleCancel(row, index)"
                   type="text"
                   size="small"
-                >查看</el-button>
-              </template>
-            </el-table-column>
-          </div>
+                >查看</el-button> -->
+              <!-- </template> -->
+            <!-- </el-table-column> -->
+          <!-- </div> -->
         </Table>
       </div>
     </div>
@@ -67,34 +70,33 @@ export default {
             name: '序号',
             key: 'index',
             width: '50%',
-            align:'center'
           },
+        //   {
+        //       name: '操作',
+        //       slot: 'apply',
+        //   },
           {
             name: '系统名称',
             key: 'name',
-            width: '138%',
-            align:'center'
+            // width: '138%',
           },
           {
             name: '机构数量',
             key: 'institutionsNum',
             width: '77%',
-            align:'center'
           },
           {
             name: '用户数量',
             key: 'uerNum',
             width: '77%',
-            align:'center'
           },
           {
             name: "活跃度",
             key: 'activity',
             width: '77%',
-            align:'center'
           },
         ],
-        // width: '93%',
+        width: '100%',
         decide: false,
         tableData: [
           {
@@ -167,6 +169,12 @@ export default {
             uerNum: 21,
             activity: 100
           }
+        ],
+        btnList: [
+            {
+                name: '查看',
+                method: 'Look',
+            }
         ]
       }
     }
@@ -204,6 +212,12 @@ export default {
     },
     handleCancel () {
       console.log(1)
+    },
+    handleAction({ row, index, name }) {
+        this[name](row, index)
+    },
+    Look(row, index) {
+        console.log(row, index)
     }
   }
 }
