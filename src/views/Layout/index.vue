@@ -17,7 +17,7 @@
       <Aside/>
       <div class="mon-wrap-content">
         <Tags></Tags>
-        <router-view></router-view>
+        <router-view class="mon-view"></router-view>
       </div>
     </div>
   </div>
@@ -93,6 +93,12 @@ export default {
     flex: 1;
     overflow: auto;
     background: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      .mon-view {
+          flex: 1;
+          overflow-y: auto;
+      }
   }
 }
 </style>
