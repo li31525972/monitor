@@ -53,6 +53,66 @@
         <el-button @click="handleCancel(row, index)" type="text" size="small">管理</el-button>
       </div>
     </Table>
+    <el-dialog :title="title" :visible.sync="dialogVisible" width="45%" :before-close="handleClose">
+      <el-form :model="form">
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="系统名称:" :label-width="formLabelWidth">
+              <el-input v-model="form.name" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="系统代码:" :label-width="formLabelWidth">
+              <el-input v-model="form.agency" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="联系人:" :label-width="formLabelWidth">
+              <el-input v-model="form.user" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="联系电话:" :label-width="formLabelWidth">
+              <el-input v-model="form.operator" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="用户名:" :label-width="formLabelWidth">
+              <el-input v-model="form.status" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="授权码:" :label-width="formLabelWidth">
+              <el-input v-model="form.user" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="机构状态:" :label-width="formLabelWidth">
+              <el-input v-model="form.user" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="24">
+            <el-form-item label="授权码有效期:" :label-width="formLabelWidth">
+              <el-date-picker v-model="form.date" class="date" type="date" placeholder="选择日期"></el-date-picker>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" class="define" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
+    <div class="footerPagination">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage4"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="1"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="10"
+      ></el-pagination>
+    </div>
   </div>
 </template>
 
@@ -232,7 +292,12 @@ export default {
           }
         ],
       },
-      date: ''
+      date: '',
+      dialogVisible:false,
+      title:null,
+      form:{},
+      formLabelWidth: '120px',
+      currentPage4:1
     }
   },
   computed: {
@@ -248,18 +313,44 @@ export default {
 
   },
   methods: {
-    handleCancel () {
-      console.log(1)
+    handleCancel (row, index) {
+      console.log(row, index)
+      this.dialogVisible=true
+      this.title='管理'
     },
     handleAction ({ row, index, name }) {
       this[name](row, index)
     },
     Look (row, index) {
       console.log(row, index)
+    },
+    handleClose(){
+      this.dialogVisible=false
+    },
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`);
     }
   }
 }
 </script>
+
+<style>
+
+.el-dialog__header {
+  background: #f8f8f8;
+  border-radius: 8px 8px 0 0;
+}
+.el-dialog {
+  border-radius: 8px;
+}
+.el-dialog__footer {
+  text-align: center;
+}
+</style>
+
 
 <style lang="scss" scoped>
 .system {
@@ -295,5 +386,22 @@ export default {
 }
 .systemTable {
   padding: 0 15px;
+}
+.define {
+  background: rgba(79, 112, 200, 1);
+  border: 1px solid rgba(79, 112, 200, 1);
+  width: 140px;
+}
+.footerPagination {
+  height: 80px;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  padding-left: 15px;
+  .el-pagination{
+    margin-top:30px;
+  }
 }
 </style>
