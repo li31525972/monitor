@@ -1,14 +1,9 @@
 import Home from '@/views/Layout'
 
-export default [
+const routes = [
     {
         path: '/',
         redirect: '/login'
-    },
-    {
-        path:'/registered',
-        name:'registered',
-        component: ()=>import('@/views/registered')
     },
     {
         path: '/home',
@@ -99,5 +94,12 @@ export default [
         name: 'login',
         meta: { title: '登录', hidden: true },
         component: () => import(/* webpackChunkName: 'login' */ '@/views/Login')
-    }
+    },
+    // {
+    //     path:'/registered',
+    //     name:'registered',
+    //     component: ()=>import('@/views/registered')
+    // },
 ]
+
+export default routes

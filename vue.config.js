@@ -51,7 +51,7 @@ module.exports = {
         // 链式配置
         config.resolve.symlinks(true)
         config.resolve.alias
-            .set('@', resolve('src'))
+        .set('@', resolve('src'))
     },
     // 配置高于chainWebpack中关于 css loader 的配置, 有需求再配置
     // css: {
@@ -106,6 +106,6 @@ module.exports = {
     },
     // 第三方插件配置
     pluginOptions: {
-
+    
     }
 }
