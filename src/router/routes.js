@@ -13,19 +13,19 @@ export default [
     {
         path: '/home',
         component: Home,
-        meta: { title: '概览', },
+        meta: { title: '概览', icon:'icon-gailanicon'},
         children: [
             {
                 path: '/',
                 name: 'overview',
-                meta: { title: '概览' },
+                meta: { title: '概览'},
                 component: () => import(/* webpackChunkName: 'overview' */ '@/views/Home')
             }
         ]
     },
     {
         path: '/system',
-        meta: { title: '系统使用统计', },
+        meta: { title: '系统使用统计', icon:'icon-xitong' },
         component: Home,
         children: [
             {
@@ -38,7 +38,7 @@ export default [
     },
     {
         path: '/basics',
-        meta: { title: '基础配置' },
+        meta: { title: '基础配置',icon:'icon-jichu' },
         component: Home,
         children: [
             {
@@ -57,7 +57,7 @@ export default [
     },
     {
         path: '/user',
-        meta: { title: '用户管理' },
+        meta: { title: '用户管理', icon:'icon-yonghuguanli' },
         component: Home,
         children: [
             {
@@ -70,7 +70,7 @@ export default [
     },
     {
         path: '/certificate',
-        meta: { title: '证书管理' },
+        meta: { title: '证书管理', icon:'icon-zhengshu' },
         component: Home,
         children: [
             {
@@ -83,7 +83,7 @@ export default [
     },
     {
         path: '/security',
-        meta: { title: '安全中心' },
+        meta: { title: '安全中心', icon:'icon-anquan' },
         component: Home,
         children: [
             {

@@ -11,6 +11,7 @@
     >
       <el-submenu :index="i+''" v-for="(item,i) in routes" :key="i" v-if="item.children.length > 1">
         <template slot="title">
+          <i :class="item.meta.icon" style="color:#fff;margin-right:10px;"></i>
           <!--<i :class="'el-icon-' + item.meta.icon"></i>-->
           <span slot="title">{{ item.meta.title }}</span>
         </template>
@@ -26,6 +27,7 @@
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item v-else @click="handleSetNav(item)" :index="item.path">
+        <i :class="item.meta.icon" style="color:#fff;margin-right:10px;"></i>
         <span slot="title">{{ item.meta.title }}</span>
       </el-menu-item>
     </el-menu>
@@ -70,8 +72,8 @@ export default {
 
 .el-menu-item.is-active::before {
   content: "";
-  background: #4F70C8;
-  width:3px;
+  background: #4f70c8;
+  width: 3px;
   height: 56px;
   position: absolute;
   left: 0;
@@ -83,7 +85,7 @@ export default {
   height: 100%;
   width: 180px;
   overflow: auto;
-
+  overflow-x: hidden;
   .el-menu {
     min-height: 100%;
   }

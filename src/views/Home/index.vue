@@ -2,42 +2,32 @@
   <div>
     <!-- 首页 -->
     <PanelGroup :form="form"/>
-    <div
-      style="width:49%;margin-top:8px;background: #fff;
-    border: 1px solid transparent;display:inline-block;"
-    >
-      <div style="padding:20px;padding-left:30px;">
-        <div style="margin-bottom:15px;">
-          系统名称:
-          <el-input type="text" placeholder="请输入系统名称" style="display:inline-block;width:25%"></el-input>
-          <el-button type="primary" style="margin-left:20px;">查询</el-button>
+    <div class="homeTable">
+      <div class="tableContent">
+        <div class="tableSearch">
+          <div style="display: inline-block; vertical-align: middle;padding-right:10px;">系统名称:</div>
+          <el-input
+            type="text"
+            size="small"
+            placeholder="请输入系统名称"
+            style="display:inline-block;width:25%"
+          ></el-input>
+          <el-button type="primary" class="tabelInquire" size="small" style="margin-left:20px;">查询</el-button>
         </div>
-        <Table :table="table"
-        :width="table.width" 
-        @handleBtnClick="handleAction"
-        :btnList="table.btnList">
-          <!-- <div slot="selection">
-            <el-table-column type="selection" align="center" ></el-table-column>
-          </div> -->
-          <!-- <div slot="apply" slot-scope="{ row, index }"> -->
-            <!-- <el-table-column fixed="right" align="center" label="使用情况" width="100"> -->
-              <!-- <template slot-scope="scope"> -->
-                <!-- <el-button
-                  @click="handleCancel(row, index)"
-                  type="text"
-                  size="small"
-                >查看</el-button> -->
-              <!-- </template> -->
-            <!-- </el-table-column> -->
-          <!-- </div> -->
+        <Table
+          :table="table"
+          :width="table.width"
+          @handleBtnClick="handleAction"
+          :btnList="table.btnList"
+        >
+          <!-- <div slot="apply" slot-scope="{ row, index }">
+            <el-button @click="handleCancel(row, index)" type="text" size="small">查看</el-button>
+          </div>-->
         </Table>
       </div>
     </div>
-    <div
-      style="width:49%;margin-top:8px;margin-left:10px;background: #fff;
-    border: 1px solid transparent;display:inline-block;"
-    >
-      <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+    <div class="homeChart">
+      <div id="myChart" :style="{width: '100%', height: '500px'}"></div>
     </div>
   </div>
 </template>
@@ -71,10 +61,11 @@ export default {
             key: 'index',
             width: '50%',
           },
-        //   {
-        //       name: '操作',
-        //       slot: 'apply',
-        //   },
+          // {
+          //   name: '操作',
+          //   slot: 'apply',
+          //   width: '50%'
+          // },
           {
             name: '系统名称',
             key: 'name',
@@ -171,10 +162,10 @@ export default {
           }
         ],
         btnList: [
-            {
-                name: '查看',
-                method: 'Look',
-            }
+          {
+            name: '查看',
+            method: 'Look',
+          }
         ]
       }
     }
@@ -197,12 +188,46 @@ export default {
       let myChart = this.$echarts.init(document.getElementById('myChart'))
       // 绘制图表
       myChart.setOption({
+        color: ['#BFD0FF'],
         title: { text: '' },
         tooltip: {},
-        xAxis: {
-          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+        grid: {
+          containLabel: true
         },
-        yAxis: {},
+        xAxis: {
+          data: ["廊坊市教育局系统", "廊坊市教育局系统", "廊坊市教育局系统", "廊坊市教育局系统", "廊坊市教育局系统", "廊坊市教育局系统", '廊坊市教育局系统', '廊坊市教育局系统', '廊坊市教育局系统', '廊坊市教育局系统'],
+          name: '系统',
+          axisTick: {    // 坐标轴 刻度
+            show: false,  // 是否显示
+          },
+          axisLabel: {
+            interval: 0,
+            formatter: function (value) {
+              var ret = "";//拼接加\n返回的类目项  
+              var maxLength = 1;//每项显示文字个数  
+              var valLength = value.length;//X轴类目项的文字个数  
+              var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数  
+              if (rowN > 1)//如果类目项的文字大于3,  
+              {
+                for (var i = 0; i < rowN; i++) {
+                  var temp = "";//每次截取的字符串  
+                  var start = i * maxLength;//开始截取的位置  
+                  var end = start + maxLength;//结束截取的位置  
+                  //这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧  
+                  temp = value.substring(start, end) + "\n";
+                  ret += temp; //凭借最终的字符串  
+                }
+                return ret;
+              }
+              else {
+                return value;
+              }
+            }
+          }
+        },
+        yAxis: {
+          name: '活跃度(%)'
+        },
         series: [{
           name: '销量',
           type: 'bar',
@@ -213,11 +238,11 @@ export default {
     handleCancel () {
       console.log(1)
     },
-    handleAction({ row, index, name }) {
-        this[name](row, index)
+    handleAction ({ row, index, name }) {
+      this[name](row, index)
     },
-    Look(row, index) {
-        console.log(row, index)
+    Look (row, index) {
+      console.log(row, index)
     }
   }
 }
@@ -230,4 +255,39 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+.homeTable {
+  width: 49%;
+  margin-top: 8px;
+  background: #fff;
+  border: 1px solid transparent;
+  display: inline-block;
+  height: 546px;
+  .tableContent {
+    padding: 20px;
+    padding-left: 30px;
+    .tableSearch {
+      margin-bottom: 15px;
+      .tabelInquire {
+        width: 75px;
+        background: rgba(79, 112, 200, 1);
+        border-radius: 2px;
+        border: 1px solid rgba(79, 112, 200, 1);
+        border-radius: 2px;
+      }
+    }
+  }
+}
+.homeChart {
+  width: 49%;
+  margin-top: 8px;
+  margin-left: 10px;
+  background: #fff;
+  border: 1px solid transparent;
+  display: inline-block;
+  height: 546px;
+  vertical-align: top;
+  #myChart {
+    padding-top: 84px;
+  }
+}
 </style>
