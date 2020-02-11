@@ -69,7 +69,7 @@ export default {
           { required: true, message: '验证码不能为空', trigger: 'blur' },
         ]
       },
-      checked:true
+      checked: true
     }
   },
   computed: {
@@ -105,7 +105,14 @@ export default {
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: rgba(79, 112, 200, 1);
-  line-height: 10px;
+  /* line-height: 10px; */
+  line-height: 17px;
+  width: 295px;
+  display: inline-block;
+  white-space: normal;
+}
+.el-checkbox__input {
+  vertical-align: super;
 }
 .el-checkbox__input.is-checked + .el-checkbox__label {
   color: rgba(79, 112, 200, 1);
@@ -115,7 +122,7 @@ export default {
   background-color: rgba(79, 112, 200, 1);
   border-color: rgba(79, 112, 200, 1);
 }
-.el-checkbox__inner:hover{
+.el-checkbox__inner:hover {
   border-color: rgba(79, 112, 200, 1);
 }
 </style>
@@ -225,6 +232,8 @@ export default {
       }
       .clause {
         .el-checkbox {
+          .el-checkbox__input {
+          }
           .el-checkbox__label {
             font-size: 14px;
             font-family: Microsoft YaHei;

@@ -63,6 +63,7 @@ $box-marginRight: 15px;
   padding-top: 19px;
   padding-bottom: 20px;
   background: #fff;
+  display: flex;
   .access,
   .check,
   .user,
@@ -74,7 +75,7 @@ $box-marginRight: 15px;
     height: $box-heigth;
     border-radius: 8px;
     width: $box-width;
-    display: inline-block;
+    flex:1;
     margin-right: $box-marginRight;
     vertical-align: top;
     color: #fff;
@@ -91,6 +92,9 @@ $box-marginRight: 15px;
       margin-left: 15px;
       margin-top: 17px;
     }
+  }
+  .area{
+    flex: 2.4;
   }
   .access {
     margin-left: $box-marginLeft;

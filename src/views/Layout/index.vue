@@ -8,8 +8,8 @@
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>修改密码</el-dropdown-item>
-          <el-dropdown-item>退出登录</el-dropdown-item>
+          <el-dropdown-item @click.native="headleRevise">修改密码</el-dropdown-item>
+          <el-dropdown-item @click.native="headleEsc">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -43,7 +43,17 @@ export default {
   mounted () {
 
   },
-  methods: {}
+  methods: {
+    headleEsc () {
+      console.log(1)
+      this.$router.push({ name: 'login' })
+      window.sessionStorage.clear();
+      window.localStorage.clear();
+    },
+    headleRevise(){
+      this.$router.push({ name: 'core' })
+    }
+  }
 }
 </script>
 
