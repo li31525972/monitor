@@ -57,7 +57,6 @@ export default {
         },
         // 关闭全部
         handleClose(name) {
-            console.log(name);
             if (name === 'b') {
                 this.$store.commit('REMOVE_ALL')
                 this.$router.replace('/home')
