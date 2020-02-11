@@ -1,28 +1,47 @@
 <template>
   <div>
-    <div class="system">
-      <div class="systemSearch">
-        <div style="vertical-align: middle;padding-right:10px">系统名称:</div>
-        <el-input style="width:65%" type="text" size="small" placeholder="请输入"></el-input>
-      </div>
-      <div class="systemSearch">
-        <div style="vertical-align: middle;padding-right:10px">系统名称:</div>
-        <el-input style="width:65%" type="text" size="small" placeholder="请输入"></el-input>
-      </div>
-      <div class="systemSearch">
-        <div style="vertical-align: middle;padding-right:10px">系统联系人:</div>
-        <el-input style="width:57%" type="text" size="small" placeholder="请输入"></el-input>
-      </div>
-      <div class="systemSearch">
-        <div style="vertical-align: middle;padding-right:10px">系统名称:</div>
-        <el-input style="width:65%" type="text" size="small" placeholder="请输入"></el-input>
-      </div>
-      <div class="systemSearch systemBtn">
+    <el-row :gutter="-15" class="system">
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3">
+        <div style="vertical-align: middle;padding-right:10px;display: inline-block;">系统名称:</div>
+        <el-input
+          style="width:65%;display: inline-block;"
+          type="text"
+          size="small"
+          placeholder="请输入"
+        ></el-input>
+      </el-col>
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3">
+        <div style="vertical-align: middle;padding-right:10px;display: inline-block;">系统联系人:</div>
+        <el-input
+          style="width:65%;display: inline-block;"
+          type="text"
+          size="small"
+          placeholder="请输入"
+        ></el-input>
+      </el-col>
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3">
+        <div style="vertical-align: middle;padding-right:10px;display: inline-block;">联系电话:</div>
+        <el-input
+          style="width:57%;display: inline-block;"
+          type="text"
+          size="small"
+          placeholder="请输入"
+        ></el-input>
+      </el-col>
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="4">
+        <div style="vertical-align: middle;padding-right:10px;display: inline-block;">上链时间:</div>
+        <el-date-picker v-model="date" type="date" size="small" placeholder="选择日期"></el-date-picker>
+      </el-col>
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3" class="systemBtn">
         <el-button class="systemInquire" type="primary" size="small">查询</el-button>
         <el-button class="systemExport" type="primary" size="small">导出Excel</el-button>
         <el-button class="systemAdd" type="primary" size="small">新增</el-button>
-      </div>
-    </div>
+      </el-col>
+      <!-- <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3">
+        <div style="vertical-align: middle;padding-right:10px">系统名称:</div>
+        <el-input style="width:65%" type="text" size="small" placeholder="请输入"></el-input>
+      </el-col>-->
+    </el-row>
     <Table
       class="systemTable"
       :table="table"
@@ -31,7 +50,7 @@
       :btnList="table.btnList"
     >
       <div slot="apply" slot-scope="{ row, index }">
-        <el-button @click="handleCancel(row, index)" type="text" size="small">查看</el-button>
+        <el-button @click="handleCancel(row, index)" type="text" size="small">管理</el-button>
       </div>
     </Table>
   </div>
@@ -212,7 +231,8 @@ export default {
             date: '2020-02-12'
           }
         ],
-      }
+      },
+      date: ''
     }
   },
   computed: {
@@ -245,6 +265,7 @@ export default {
 .system {
   margin-top: 15px;
   margin-bottom: 15px;
+  margin-left: 15px;
   div {
     display: inline-block;
   }
@@ -252,7 +273,7 @@ export default {
     width: 18%;
     padding-left: 15px;
   }
-  .systemSearch.systemBtn {
+  .systemBtn {
     padding-left: 8px;
     .systemInquire,
     .systemExport,
