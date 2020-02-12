@@ -3,38 +3,38 @@
     <div class="access">
       <div>
         {{form.Numhome}}
-        <span>家</span>
+        <span>套</span>
       </div>
-      <div>接入系统数量</div>
+      <div>业务系统</div>
     </div>
     <div class="check">
       <div>{{form.Check}}<span>家</span></div>
-      <div>入住机构数量</div>
+      <div>使用机构</div>
     </div>
     <div class="user">
       <div>{{form.User}}<span>人</span></div>
-      <div>用户总数</div>
+      <div>使用用户</div>
     </div>
     <div class="average">
-      <div>{{form.average}}<span>条</span></div>
-      <div>日均数据上链数</div>
+      <div>{{form.average}}<span>次/天</span></div>
+      <div>日均系统登录</div>
     </div>
     <div class="total">
-      <div>{{form.totalData}}<span>条</span></div>
-      <div>链上总数据</div>
+      <div>{{form.totalData}}<span>小时/周</span></div>
+      <div>周均系统使用时长</div>
     </div>
     <div class="day">
-      <div>{{form.day}}<span>次/天</span></div>
-      <div>日均机构登录次数</div>
+      <div>{{form.day}}<span>万</span></div>
+      <div>链上总数据</div>
     </div>
     <div class="hour">
       <div>{{form.hour}}<span>小时/周</span></div>
       <div>周均机构使用时长</div>
     </div>
-    <div class="area">
+    <!-- <div class="area">
       <div>{{form.province}}<span>个省份</span>{{form.city}}<span>个市区</span>{{form.county}}<span>个县区</span></div>
       <div>服务地区</div>
-    </div>
+    </div> -->
   </div>
 </template>
 

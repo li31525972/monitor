@@ -1,38 +1,34 @@
 <template>
   <div>
     <el-row :gutter="-15" class="system">
-      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3">
-        <div style="vertical-align: middle;padding-right:10px;display: inline-block;">系统名称:</div>
-        <el-input
-          style="width:65%;display: inline-block;"
-          type="text"
-          size="small"
-          placeholder="请输入"
-        ></el-input>
-      </el-col>
-      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3">
-        <div style="vertical-align: middle;padding-right:10px;display: inline-block;">系统联系人:</div>
-        <el-input
-          style="width:65%;display: inline-block;"
-          type="text"
-          size="small"
-          placeholder="请输入"
-        ></el-input>
-      </el-col>
-      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3">
-        <div style="vertical-align: middle;padding-right:10px;display: inline-block;">联系电话:</div>
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3" style="margin-bottom: 10px;">
         <el-input
           style="width:57%;display: inline-block;"
           type="text"
           size="small"
-          placeholder="请输入"
+          placeholder="请输入系统名称"
         ></el-input>
       </el-col>
-      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="4">
-        <div style="vertical-align: middle;padding-right:10px;display: inline-block;">上链时间:</div>
-        <el-date-picker v-model="date" type="date" size="small" placeholder="选择日期"></el-date-picker>
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3" style="margin-bottom: 10px;">
+        <el-input
+          style="width:57%;display: inline-block;"
+          type="text"
+          size="small"
+          placeholder="请输入系统联系人"
+        ></el-input>
       </el-col>
-      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3" class="systemBtn">
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3" style="margin-bottom: 10px;">
+        <el-input
+          style="width:57%;display: inline-block;"
+          type="text"
+          size="small"
+          placeholder="请输入联系电话"
+        ></el-input>
+      </el-col>
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="4" style="margin-bottom: 10px;">
+        <el-date-picker v-model="date" type="date" size="small" placeholder="选择上链时间"></el-date-picker>
+      </el-col>
+      <el-col :xs="12" :sm="8" :md="8" :lg="6" :xl="3" class="systemBtn" style="float:right;">
         <el-button class="systemInquire" type="primary" size="small">查询</el-button>
         <el-button class="systemExport" type="primary" size="small">导出Excel</el-button>
         <el-button class="systemAdd" type="primary" size="small">新增</el-button>
@@ -42,6 +38,7 @@
         <el-input style="width:65%" type="text" size="small" placeholder="请输入"></el-input>
       </el-col>-->
     </el-row>
+    <el-divider></el-divider>
     <Table
       class="systemTable"
       :table="table"
@@ -58,42 +55,42 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="系统名称:" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
+              <el-input v-model="form.name"  class="date" autocomplete="off"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="系统代码:" :label-width="formLabelWidth">
-              <el-input v-model="form.agency" autocomplete="off"></el-input>
+              <el-input v-model="form.agency"  class="date" autocomplete="off"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="联系人:" :label-width="formLabelWidth">
-              <el-input v-model="form.user" autocomplete="off"></el-input>
+              <el-input v-model="form.user"  class="date" autocomplete="off"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="联系电话:" :label-width="formLabelWidth">
-              <el-input v-model="form.operator" autocomplete="off"></el-input>
+              <el-input v-model="form.operator"  class="date" autocomplete="off"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="用户名:" :label-width="formLabelWidth">
-              <el-input v-model="form.status" autocomplete="off"></el-input>
+              <el-input v-model="form.status"  class="date" autocomplete="off"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="授权码:" :label-width="formLabelWidth">
-              <el-input v-model="form.user" autocomplete="off"></el-input>
+              <el-input v-model="form.user"  class="date" autocomplete="off"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="机构状态:" :label-width="formLabelWidth">
-              <el-input v-model="form.user" autocomplete="off"></el-input>
+              <el-input v-model="form.user"  class="date" autocomplete="off"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item label="授权码有效期:" :label-width="formLabelWidth">
-              <el-date-picker v-model="form.date" class="date" type="date" placeholder="选择日期"></el-date-picker>
+              <el-date-picker v-model="form.date"  class="date"  type="date" placeholder="选择日期"></el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>
@@ -129,12 +126,12 @@ export default {
           {
             name: '序号',
             key: 'index',
-            width: '50%',
+            // width: '50%',
           },
           {
             name: '操作',
             slot: 'apply',
-            width: '50%'
+            // width: '50%'
           },
           {
             name: '系统名称',
@@ -144,37 +141,37 @@ export default {
           {
             name: '系统代码',
             key: 'code',
-            width: '110%',
+            // width: '110%',
           },
           {
             name: '授权码',
             key: 'authorize',
-            width: '110%',
+            // width: '110%',
           },
           {
             name: "授权码有效期",
             key: 'expirationDate',
-            width: '110%',
+            // width: '110%',
           },
           {
             name: "状态",
             key: 'status',
-            width: '110%',
+            // width: '110%',
           },
           {
             name: "系统联系人",
             key: 'person',
-            width: '110%',
+            // width: '110%',
           },
           {
             name: "联系电话",
             key: 'phone',
-            width: '110%',
+            // width: '110%',
           },
           {
             name: "上链时间",
             key: 'date',
-            width: '110%',
+            // width: '110%',
           },
         ],
         width: '100%',
@@ -349,6 +346,9 @@ export default {
 .el-dialog__footer {
   text-align: center;
 }
+.el-divider--horizontal{
+  margin: 12px 0
+}
 </style>
 
 
@@ -365,7 +365,7 @@ export default {
     padding-left: 15px;
   }
   .systemBtn {
-    padding-left: 8px;
+    // padding-left: 8px;
     .systemInquire,
     .systemExport,
     .systemAdd {
@@ -386,6 +386,10 @@ export default {
 }
 .systemTable {
   padding: 0 15px;
+  padding-bottom: 100px;
+}
+.date{
+  width: 90%;
 }
 .define {
   background: rgba(79, 112, 200, 1);

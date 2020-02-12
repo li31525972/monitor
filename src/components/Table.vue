@@ -10,6 +10,7 @@
       <el-table-column
         type="selection"
         align="center"
+        class="qewwfdsadsdasdaskl"
       ></el-table-column>
       <el-table-column
         v-for="(item,i) in table.list"

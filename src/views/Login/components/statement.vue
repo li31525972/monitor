@@ -1,10 +1,10 @@
 <template>
   <div class="statement">
-    <el-dialog :visible.sync="dialogVisible" width="520px" @close="hideModal()">
-      <span slot="title" class="dialog-footer">
+    <el-dialog :visible.sync="dialogVisible" width="520px" class="popup" @close="hideModal()">
+      <div slot="title" class="dialog-footers">
         <div class="Title">提示</div>
         <div class="tip">您还没有安装链盾服务，请您先下载链盾服务，安装后方可成功登录。</div>
-      </span>
+      </div>
       <div class="content">
         <div>
           <p>1．知识产权保护该软件（_________）的著作权和所有权由_________有限公司所有。该软件受_________国著作权法和国际条约条款的保护。商标的使用应符合商标惯例，包括和商标所有人名称的一致。商标可以仅用于对该软件产品的识别。对于任何商标的该种使用都不会导致对该商标使用权的拥有。除上述以外，该协议不授予你该软件上的任何知识产权。</p>
@@ -91,8 +91,14 @@ export default {
 <style lang="scss" scoped>
 .statement {
   border-radius: 8px;
+  .popup{
+
+  .el-dialog__header{
+    background: #fff;
+  }
+  }
   .content {
-    padding: 0 20px;
+    padding: 10px 20px;
   }
   .agreeS {
     text-align: left;

@@ -5,7 +5,6 @@
     <div class="homeTable">
       <div class="tableContent">
         <div class="tableSearch">
-          <div style="display: inline-block; vertical-align: middle;padding-right:10px;">系统名称:</div>
           <el-input
             type="text"
             size="small"
@@ -29,6 +28,35 @@
     <div class="homeChart">
       <div id="myChart" :style="{width: '100%', height: '500px'}"></div>
     </div>
+    <el-dialog :title="title" :visible.sync="dialogVisible" width="45%" :before-close="handleClose">
+      <el-form :model="forms">
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="系统名称:" :label-width="formLabelWidth">
+              <el-input v-model="forms.name" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="机构数量:" :label-width="formLabelWidth">
+              <el-input v-model="forms.institutionsNum" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="用户数量:" :label-width="formLabelWidth">
+              <el-input v-model="forms.uerNum" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="活跃度:" :label-width="formLabelWidth">
+              <el-input v-model="forms.activity" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" class="define" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -69,22 +97,22 @@ export default {
           {
             name: '系统名称',
             key: 'name',
-            // width: '138%',
+            width: '79%',
           },
           {
             name: '机构数量',
             key: 'institutionsNum',
-            width: '77%',
+            width: '79%',
           },
           {
             name: '用户数量',
             key: 'uerNum',
-            width: '77%',
+            width: '79%',
           },
           {
             name: "活跃度",
             key: 'activity',
-            width: '77%',
+            width: '71%',
           },
         ],
         width: '100%',
@@ -163,11 +191,15 @@ export default {
         ],
         btnList: [
           {
-            name: '查看',
+            name: '查看详情',
             method: 'Look',
           }
         ]
-      }
+      },
+      title:null,
+      forms:{},
+      dialogVisible:false,
+      formLabelWidth:'120px'
     }
   },
   computed: {
@@ -243,6 +275,12 @@ export default {
     },
     Look (row, index) {
       console.log(row, index)
+      this.dialogVisible=true
+      this.forms=row
+      this.title='查看'
+    },
+    handleClose(){
+      this.dialogVisible=false
     }
   }
 }
@@ -251,6 +289,9 @@ export default {
 <style>
 .el-table_10_column_64.is-center.el-table-column--selection {
   border-right: none;
+}
+.el-dialog__footer{
+    text-align: center;
 }
 </style>
 
@@ -289,5 +330,11 @@ export default {
   #myChart {
     padding-top: 84px;
   }
+}
+
+.define {
+  background: rgba(79, 112, 200, 1);
+  border: 1px solid rgba(79, 112, 200, 1);
+  width: 140px;
 }
 </style>

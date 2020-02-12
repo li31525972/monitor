@@ -31,7 +31,7 @@
           <img src="../../assets/images/code.png" class="codeImg">
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')" class="submit">登录</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm')" class="submit log">登&nbsp;&nbsp;&nbsp;录</el-button>
         </el-form-item>
         <div>
           <div class="registered" @click="hadleRegistered">注册链盾>></div>
@@ -101,7 +101,7 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$router.push({ name: "overview" })
+          this.$router.push({ path: "/home" })
         } else {
           console.log('error submit!!');
           return false;
@@ -130,7 +130,8 @@ export default {
   .header {
     height: 50px;
     line-height: 50px;
-    padding-left: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
     color: #fff;
     font-size: 1.5rem;
     .icon-logo {
@@ -200,22 +201,24 @@ export default {
       }
       .code {
         .Verification {
-          width: 44%;
+          width: 46%;
         }
         .codeImg {
           vertical-align: top;
           height: 40px;
           margin-left: 20px;
           cursor: pointer;
+          float: right;
         }
       }
-      .submit {
+      .submit.log {
         width: 100%;
         // height: 33px;
         // line-height: 33px;
         background: rgba(79, 112, 200, 1);
         border-radius: 3px;
         border: 1px solid rgba(79, 112, 200, 1);
+        letter-spacing: 10px;
       }
       .registered,
       .guide {

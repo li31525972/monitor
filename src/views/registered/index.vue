@@ -213,6 +213,7 @@ export default {
           height: 40px;
           margin-left: 20px;
           cursor: pointer;
+          float: right;
         }
       }
       .submit {

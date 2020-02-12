@@ -22,6 +22,8 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    font-family: Microsoft YaHei,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -33,7 +35,8 @@ footer, header, hgroup, menu, nav, section {
 body {
     line-height: 1;
 }
-
+#app{
+}
 ol, ul {
     list-style: none;
 }
@@ -54,9 +57,10 @@ table {
 }
 
 html, body, #app {
-    width: 100%;
+    /* width: 100%; */
+    min-width: 1200px;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 @font-face {
@@ -93,4 +97,7 @@ i, em {
     width: 100%;
     text-align: center;
     position: absolute;
+}
+.el-table-column--selection .cell{
+    padding-right: 10px !important ;
 }

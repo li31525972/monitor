@@ -9,10 +9,11 @@ const routes = [
         path: '/home',
         component: Home,
         meta: { title: '概览', icon:'icon-gailanicon'},
+        name:"overview",
         children: [
             {
                 path: '/',
-                name: 'overview',
+                // name: 'overview',
                 meta: { title: '概览'},
                 component: () => import(/* webpackChunkName: 'overview' */ '@/views/Home')
             }
@@ -79,6 +80,7 @@ const routes = [
     {
         path: '/security',
         meta: { title: '安全中心', icon:'icon-anquan' },
+        name:'security',
         component: Home,
         children: [
             {

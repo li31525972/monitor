@@ -47,11 +47,13 @@ export default {
     headleEsc () {
       console.log(1)
       this.$router.push({ name: 'login' })
+      this.$store.commit('CLEAR_TAGS')
       window.sessionStorage.clear();
       window.localStorage.clear();
     },
     headleRevise(){
-      this.$router.push({ name: 'core' })
+      this.$router.push({ path: '/security' })
+      this.$store.commit('SET_TAGS', { name: this.$route.meta.title, path: this.$route.path })
     }
   }
 }

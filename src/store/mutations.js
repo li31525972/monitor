@@ -10,6 +10,11 @@ export default {
             state.tags.push(data)
         }
     },
+    // 清除tags
+    CLEAR_TAGS(state,data){
+        console.log(state)
+        state.tags=[]
+    },
     // 移除tags
     REMOVE_TAGS(state, data) {
         state.tags.forEach((item, i) => {
